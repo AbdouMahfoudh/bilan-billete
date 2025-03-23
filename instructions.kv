@@ -1,0 +1,66 @@
+#:kivy 2.1.0
+
+<Instructions>:
+    name: "instructions"
+    GridLayout :
+        #orientation : "vertical"
+        size : root.width, root.height
+        spacing : 1
+        cols : 1
+        background_color: (189/255, 189/255, 185/255,1)
+        canvas.before :
+            Color :
+                rgba : self.background_color
+            Rectangle :
+                size : self.size
+                pos : self.pos
+        BoxLayout:
+            orientation: 
+            size_hint : (1, 1)
+            background_color: (0/255, 189/255, 185/255,1)
+            canvas.before :
+                Color :
+                    rgba : self.background_color
+                Rectangle :
+                    size : self.size
+                    pos : self.pos
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+            Label:
+                text : "Instructions"
+                font_size : 50
+                bold : True
+                
+                #pos_hint : {'center_x' : 0.5, 'y':0}
+                
+            Button:
+                size_hint:(.2, .7)
+                pos_hint : {'x':0, 'y':.1}
+                background_normal:''
+                background_color: (0/255, 175/255, 175/255,1)
+                on_release : app.root.current = "second"
+                Image:
+                    source:"images/rt4.png"
+                    center_x : self.parent.center_x
+                    center_y : self.parent.center_y
+                    size_hint:(.2, .7)
+                    size : (50, 50)
+        BoxLayout:
+            orientation:
+            size_hint : (1, 6)
+            padding : 20,20,20,20
+            ScrollView:
+                Label:
+                    id: ee
+                    text : root.ins
+                    size_hint_y : None
+                    height : self.texture_size[1]
+                    text_size: self.width, None
+                    #halign:'center'
+                    font_size : 25
+                    color : (0,0,0,1)
+
+                    

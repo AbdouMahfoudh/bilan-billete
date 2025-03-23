@@ -1,0 +1,23 @@
+#:kivy 2.1.0
+<TwoSideApp>:
+    orientation: 'horizontal'
+    
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Left Side'
+            font_size: 24
+            size_hint_y: 0.1
+        TextInput:
+            hint_text: 'Input for left side'
+            size_hint_y: 0.9
+            
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Right Side'
+            font_size: 24
+            size_hint_y: 0.1
+        TextInput:
+            hint_text: 'Input for right side'
+            size_hint_y: 0.9

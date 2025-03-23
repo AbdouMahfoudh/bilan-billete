@@ -1,0 +1,107 @@
+#:kivy 2.1.0
+<Users>:
+    name: "users"
+    GridLayout :
+        #orientation : "vertical"
+        size : root.width, root.height
+        spacing : 1
+        cols : 1
+        background_color: (189/255, 189/255, 185/255,1)
+        canvas.before :
+            Color :
+                rgba : self.background_color
+            Rectangle :
+                size : self.size
+                pos : self.pos
+        BoxLayout:
+            orientation: 
+            size_hint : (1, 1)
+            background_color: (0/255, 189/255, 185/255,1)
+            canvas.before :
+                Color :
+                    rgba : self.background_color
+                Rectangle :
+                    size : self.size
+                    pos : self.pos
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+            Label:
+                text : "Choisir Les Groupes"
+                font_size : 50
+                bold : True
+                
+                #pos_hint : {'center_x' : 0.5, 'y':0}
+        BoxLayout:
+            orientation:
+        BoxLayout:
+            orientation:
+            padding : 30, 3, 30, 3
+            spacing : 5
+            
+            Label:
+                
+                text : "Groupe1"
+                font_size : 40
+                color : (0,0, 0, 1)
+                bold : True
+            TextInput :
+                id : Joueur1
+                halign : 'center'
+                #input_type: "number"
+                font_size : 40
+                size_hint : (1, .7)
+                pos_hint : {'x' : 0, 'y':0.15}
+                multiline :False
+                valign : 'middle'
+        BoxLayout:
+            orientation:
+            padding : 30, 3, 30, 3
+            spacing : 5
+            Label:
+                
+                text : "Groupe2"
+                font_size : 40
+                color : (0,0, 0, 1)
+                bold : True
+            TextInput :
+                id : Joueur2
+                halign : 'center'
+                #input_type: "number"
+                font_size : 40
+                valign : 'middle'
+                size_hint : (1, .7)
+                #size_hint : (0.5, 1)
+                pos_hint : {'x' : 0, 'y':0.15}
+                multiline :False
+        BoxLayout:
+            orientation:
+        BoxLayout:
+            orientation:
+            padding : 30, 3, 30, 3
+            spacing : 3
+            Button:
+                text: "Commencer"
+                on_press: app.comm()
+                font_size : 40
+                bold : True
+                background_normal:''
+                background_color: (0/255, 160/255, 175/255,1)
+                
+        BoxLayout:
+            orientation:
+            padding : 80, 0, 80, 3
+            spacing : 3
+            Button:
+                size_hint: (1, .5)
+                pos_hint : {'y': .25}
+                text: "Avancer"
+                #on_press:  app.root.current = "victoir"
+                on_release : app.avan() #root.current = "main"
+                background_normal:''
+                #210, 210, 210 120, 120, 120
+                background_color: (140/255, 140/255, 140/255,1)
+                color : (0,0,0,1)
+                bold:True

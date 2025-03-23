@@ -1,0 +1,203 @@
+#:kivy 2.1.0
+<Mode>:
+    name: "mode"
+    GridLayout :
+        #orientation : "vertical"
+        size : root.width, root.height
+        spacing : 1
+        cols : 1
+        background_color: (189/255, 189/255, 185/255,1)
+        canvas.before :
+            Color :
+                rgba : self.background_color
+            Rectangle :
+                size : self.size
+                pos : self.pos
+        BoxLayout:
+            orientation: 
+            #size_hint : (None, None)
+            height : 80
+            width : root.width
+            background_color: (0/255, 189/255, 185/255,1)
+            canvas.before :
+                Color :
+                    rgba : self.background_color
+                Rectangle :
+                    size : self.size
+                    pos : self.pos
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+            Label:
+                text : "Mode de jeu"
+                font_size : 50
+                bold : True
+                
+                #pos_hint : {'center_x' : 0.5, 'y':0}
+                
+            Button:
+                size_hint:(.2, .7)
+                pos_hint : {'x':0, 'y':.1}
+                background_normal:''
+                background_color: (0/255, 175/255, 175/255,1)
+                on_release : app.root.current = "main"
+                Image:
+                    source:"images/rt4.png"
+                    center_x : self.parent.center_x
+                    center_y : self.parent.center_y
+                    size_hint:(.2, .7)
+                    size : (50, 50)
+        
+            
+
+            
+            
+        BoxLayout:
+            orientation: "vertical"
+            padding: 10
+            spacing: 10
+            size_hint:(1, 2.5)
+            
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: '40dp'
+                Label:
+                    text: ''
+                    size_hint_x: 0.2
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: '40dp'
+                    background_color: (100/255, 160/255, 185/255,1)
+                    canvas.before :
+                        Color :
+                            rgba : self.background_color
+                        Rectangle :
+                            size : self.size
+                            pos : self.pos
+                        Color:
+                            rgba: .5, .5, .5, 1
+                        Line:
+                            width: 1
+                            rectangle: self.x, self.y, self.width, self.height
+                    Label:
+                        text: 'Sans crique'
+                        size_hint_x: 0.4
+                        bold: True
+                        font_size : 20
+
+                    CheckBox:
+                        id : op1
+                        size_hint_x: 0.2
+                        color: 0.9, 0.4, 0.1, 1  # Orange color
+                        on_active: root.checkbox_selected1(op1.active)
+                Label:
+                    text: ''
+                    size_hint_x: 0.2
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: '40dp'
+                Label:
+                    text: ''
+                    size_hint_x: 0.2
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: '40dp'
+                    background_color: (0/255, 189/255, 185/255,1)
+                    canvas.before :
+                        Color :
+                            rgba : self.background_color
+                        Rectangle :
+                            size : self.size
+                            pos : self.pos
+                        Color:
+                            rgba: .5, .5, .5, 1
+                        Line:
+                            width: 1
+                            rectangle: self.x, self.y, self.width, self.height
+                    Label:
+                        text: 'Avec crique'
+                        size_hint_x: 0.4
+                        bold: True
+                        font_size : 20
+
+                    CheckBox:
+                        id : op2
+                        size_hint_x: 0.2
+                        color: 0.9, 0.4, 0.1, 1  # Orange color
+                        #size: 100, 100
+                        #on_active: root.checkbox_selected2()
+                        on_active: root.checkbox_selected2(op2.active)
+                Label:
+                    text: ''
+                    size_hint_x: 0.2
+            
+            
+        
+        BoxLayout:
+            orientation:
+            Label:
+                text: ''
+                size_hint_x: 0.21
+            BoxLayout:
+                orientation: 'vertical'
+                background_color: (100/255, 180/255, 185/255,1)
+                #size_hint_x : .8
+                canvas.before :
+                    Color :
+                        rgba : self.background_color
+                    Rectangle :
+                        size : self.size
+                        pos : self.pos
+                    Color:
+                        rgba: .5, .5, .5, 1
+                    Line:
+                        width: 1
+                        rectangle: self.x, self.y, self.width, self.height
+                BoxLayout:
+                    orientation:
+                    Label:
+                        size_hint_x : 2
+                        text: ''
+                    Label:
+                        text: '+7'
+                    CheckBox:
+                        id : op3
+                        color: 0.9, 0.4, 0.1, 1 
+                        on_active: root.checkbox_selected3(op3.active, 1)
+                BoxLayout:
+                    orientation:
+                    Label:
+                        size_hint_x : 2
+                        text: 'teycé'
+                        bold: True
+                        font_size : 20
+                    Label:
+                        text: '+3 -3'
+                    CheckBox:
+                        id : op4
+                        color: 0.9, 0.4, 0.1, 1 
+                        on_active: root.checkbox_selected3(op4.active, 2)
+                BoxLayout:
+                    orientation:
+                    Label:
+                        size_hint_x : 2
+                        text: ''
+                    Label:
+                        text: '+2 -2'
+                    CheckBox:
+                        id : op5
+                        color: 0.9, 0.4, 0.1, 1 
+                        on_active: root.checkbox_selected3(op5.active, 3)
+            Label:
+                text: ''
+                size_hint_x: 0.21
+                    
+        BoxLayout:
+            orientation:

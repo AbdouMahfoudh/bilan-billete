@@ -1,0 +1,118 @@
+#:kivy 2.1.0
+
+<Historique>:
+    name: "historique"
+    bx : bx
+    GridLayout :
+        #orientation : "vertical"
+        size : root.width, root.height
+        spacing : 1
+        cols : 1
+        background_color: (189/255, 189/255, 185/255,1)
+        canvas.before :
+            Color :
+                rgba : self.background_color
+            Rectangle :
+                size : self.size
+                pos : self.pos
+        BoxLayout:
+            orientation: 
+            size_hint : (1, 1)
+            background_color: (0/255, 189/255, 185/255,1)
+            canvas.before :
+                Color :
+                    rgba : self.background_color
+                Rectangle :
+                    size : self.size
+                    pos : self.pos
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+            Label:
+                text : "Historique"
+                font_size : 50
+                bold : True
+                
+                #pos_hint : {'center_x' : 0.5, 'y':0}
+                
+            Button:
+                size_hint:(.2, .7)
+                pos_hint : {'x':0, 'y':.1}
+                background_normal:''
+                background_color: (0/255, 175/255, 175/255,1)
+                on_release : app.root.current = "second"
+                Image:
+                    source:"images/rt4.png"
+                    center_x : self.parent.center_x
+                    center_y : self.parent.center_y
+                    size_hint:(.2, .7)
+                    size : (50, 50)
+        BoxLayout:
+            orientation:
+            size_hint : (1, .6)
+            background_color: (140/255, 140/255, 140/255,1)
+            canvas.before :
+                Color :
+                    rgba : self.background_color
+                Rectangle :
+                    size : self.size
+                    pos : self.pos
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+            Label:
+                text : " Match " 
+                color : (0,0,0,1)
+                font_size : 30
+                bold : True
+                size_hint_x : 2
+            Label:
+                text : " Score " 
+                color : (0,0,0,1)
+                font_size : 30
+                bold : True
+            Label:
+                text : " Date " 
+                color : (0,0,0,1)
+                font_size : 30
+                bold : True
+            Label:
+                text : "Temps" 
+                color : (0,0,0,1)
+                font_size : 30
+                bold : True
+            Label:
+                text : "Sup" 
+                color : (0,0,0,1)
+                font_size : 30
+                bold : True
+        ScrollView:
+            size_hint : (1, 5)
+            BoxLayout:
+                orientation: "vertical"
+                id : bx
+                size_hint : (1, None)
+                height: self.minimum_height
+                canvas.before :
+                    Color:
+                        rgba: .5, .5, .5, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+                
+                
+                
+        BoxLayout:
+            orientation: 
+            size_hint : (1, 1)
+            Button:
+                text: "Effacer Historique"
+                on_release : root.efhist()
+                font_size : 40
+                bold : True
+
+            

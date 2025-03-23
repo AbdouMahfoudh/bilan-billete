@@ -1,0 +1,32 @@
+Commands to copy 
+sudo apt-get install git libssl-dev cython3
+
+problem with cython
+
+cd /bin/ && sudo gedit cython
+Write 'cython3 $@' and save
+
+sudo chmod 755 cython
+
+git clone https://github.com/kivy/buildozer.git
+
+sudo apt install -y git zip unzip openjdk-8-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev
+
+cd buildozer/
+sudo python3 setup.py install
+
+ buildozer init
+
+make changes in spec file 
+(internet enable, orientation etc )
+
+buildozer android debug
+
+
+        Image:
+            source: "hhh.jpeg"
+            allow_stretch: True
+            keep_ratio: True
+            size_hnit_y: None
+            width: self.parent.width
+            height: self.parent.width/self.image_ratio

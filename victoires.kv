@@ -1,0 +1,149 @@
+#:kivy 2.1.0
+<Victoir>:
+    name: "victoir"
+    gr2:gr2
+    GridLayout :
+        #orientation : "vertical"
+        size : root.width, root.height
+        spacing : 1
+        cols : 1
+        background_color: (189/255, 189/255, 185/255,1)
+        canvas.before :
+            Color :
+                rgba : self.background_color
+            Rectangle :
+                size : self.size
+                pos : self.pos
+        BoxLayout:
+            orientation: 
+            #size_hint : (None, None)
+            height : 80
+            width : root.width
+            background_color: (0/255, 189/255, 185/255,1)
+            canvas.before :
+                Color :
+                    rgba : self.background_color
+                Rectangle :
+                    size : self.size
+                    pos : self.pos
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+            Label:
+                text : "Victoires"
+                font_size : 50
+                bold : True
+                
+                #pos_hint : {'center_x' : 0.5, 'y':0}
+                
+            Button:
+                size_hint:(.2, .7)
+                pos_hint : {'x':0, 'y':.1}
+                background_normal:''
+                background_color: (0/255, 175/255, 175/255,1)
+                on_release : app.root.current = "main"
+                Image:
+                    source:"images/rt4.png"
+                    center_x : self.parent.center_x
+                    center_y : self.parent.center_y
+                    size_hint:(.2, .7)
+                    size : (50, 50)
+        BoxLayout:
+            orientation:
+            size_hint : (1, 0.7)
+            background_color: (140/255, 140/255, 140/255,1)
+            padding : 3
+            canvas.before :
+                Color :
+                    rgba : self.background_color
+                Rectangle :
+                    size : self.size
+                    pos : self.pos
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+            Label:
+                id: j1
+                text : "Groupe1" 
+                color : (0,0,0,1)
+                font_size : 30
+                bold : True
+            Label:
+                id:j2
+                text : "Groupe2"
+                color : (0,0,0,1)
+                font_size : 30
+                bold : True
+        
+        ScrollView:
+            size_hint : (1, 4)    
+            GridLayout:
+                cols : 2
+                id : gr2
+                size_hint : (1, None)
+                height: self.minimum_height
+
+        BoxLayout:
+            orientation:
+            canvas.before:
+                Color:
+                    rgba: .5, .5, .5, 1
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+            Label:
+                id: xx1
+                text : "0"
+                color : (1,0,0,1)
+                font_size : 80
+                bold : True
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 1, 1
+                    Line:
+                        circle:
+                            (
+                            self.center_x,
+                            self.center_y,
+                            min(self.width, self.height) / 2 
+                            )
+                        width: 1
+            Label:
+                id: xx2
+                text : "0"
+                color : (1,0,0,1)
+                font_size : 80
+                bold : True
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 1, 1
+                    Line:
+                        circle:
+                            (
+                            self.center_x,
+                            self.center_y,
+                            min(self.width, self.height) / 2 
+                            )
+                        width: 1 
+                    
+        BoxLayout:
+            orientation:
+            Button:
+                text: "Recommencer"
+                on_release: app.man()
+                font_size : 30
+                bold : True
+                background_normal : ''
+                background_color: (140/255, 140/255, 140/255,1)
+                canvas.before:
+                    Color:
+                        rgba: .5, .5, .5, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+
